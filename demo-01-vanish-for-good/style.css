@@ -145,14 +145,14 @@ figure figcaption {
 aside {
 	grid-row: 3;
 	grid-column: 3;	
-	grid-template-columns: [article-start] 1fr [list-start] 1fr [list-end];
-	grid-gap: var(--scale-01);
 	color: var(--color-00);
 }
 
-@media(min-width: 400px) {
+@media(min-width: 600px) {
 	aside {
 		display: grid;
+		grid-template-columns: [article-start] 1fr [list-start] 1fr [list-end];
+		grid-gap: var(--scale-01);
 		grid-gap: var(--scale-01);
 	}
 }
