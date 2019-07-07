@@ -45,20 +45,20 @@ body {
 	color: var(--color-00);
 }
 
-/* Wrapper
+/* Section
 ------------------------------- */
 
-.wrapper {
+section {
+	grid-template-rows: [headline-start] var(--scale-07) [content-start-start] 500px [sidebar-start] auto;
+	grid-template-columns: [headline-start] min-content [content-start] 3fr [sidebar-start] 4fr [sidebar-end];
 	grid-gap: var(--scale-01);
-	grid-template-columns: min-content 3fr 4fr;
-	grid-template-rows: var(--scale-05) 500px auto;
 	max-width: 1200px;
 	margin: 0 auto;
 	padding: 0 var(--scale-01);
 }
 
 @media(min-width: 1024px) {
-	.wrapper {
+	section {
 		display: grid;
 	}
 }
@@ -108,7 +108,7 @@ main p + p {
 /* Intro paragraph
 ------------------------------- */
 
-.intro {
+main p:first-child {
 	margin: 0 0 var(--scale-04) 0;
 	font-size: var(--scale-02);
 	font-style: italic;
@@ -118,7 +118,7 @@ main p + p {
 /* Bag image
 ------------------------------- */
 
-.bag {
+figure {
 	grid-row: 2;
 	grid-column: 3;
 	justify-self: center;
@@ -128,12 +128,12 @@ main p + p {
 }
 
 @media(min-width: 1024px) {
-	.bag {
+	figure {
 		margin: 0;
 	}
 }
 
-.bag figcaption {
+figure figcaption {
 	font-size: var(--scale--1);
 	color: var(--color-01);
 	font-style: italic;
@@ -145,7 +145,8 @@ main p + p {
 aside {
 	grid-row: 3;
 	grid-column: 3;	
-	grid-template-columns: 1fr 1fr;
+	grid-template-columns: [article-start] 1fr [list-start] 1fr [list-end];
+	grid-gap: var(--scale-01);
 	color: var(--color-00);
 }
 
@@ -164,8 +165,9 @@ aside > article {
 }
 
 aside h3 {
-	margin-top: 0;
+	margin: 0 0 var(--scale-02);
 	color: var(--color-01);
+	font-size: var(--scale-02);
 }
 
 aside p + p {
