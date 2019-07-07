@@ -1,0 +1,138 @@
+/* Vars
+------------------------------- */
+
+:root {
+	/* Colors
+	------------------------------- */
+	
+	--color-00: #666;
+	--color-01: #db0000;
+
+	/* 	Typographic scale: Base size 16px, scale 1.250 Major Third (https://type-scale.com/?size=16&scale=1.250&text=Vanish%20for%20Good&font=Open%20Sans%20Condensed&fontweight=400&bodyfont=Open%20Sans&bodyfontweight=400&lineheight=1.5&backgroundcolor=white&fontcolor=%23333&preview=false)
+	------------------------------- */
+
+	--scale--3: 8.19px;
+	--scale--2: 10.24px;
+	--scale--1: 12.8px;
+	--scale-00: 18px;
+	--scale-01: 20px;
+	--scale-02: 25px;
+	--scale-03: 32.25px;
+	--scale-04: 39.06px;
+	--scale-05: 48.83px;
+	--scale-06: 61.04px;
+	--scale-07: 76.29px;
+	--scale-08: 95.37px;
+
+	/* Font
+	------------------------------- */
+	
+	--font-00: "Open Sans", Arial, sans-serif;
+	--font-02: "Open Sans Condensed", Arial, sans-serif;
+}
+
+/* Body
+------------------------------- */
+
+body {
+	margin: var(--scale-02) 0;
+	padding: 0;
+	font-family: var(--font-00);
+	font-size: var(--scale-00);
+	line-height: 1.5;
+	color: var(--color-00);
+}
+
+/* Section
+------------------------------- */
+
+section {	
+	grid-template-areas:
+		"figure"
+		"."
+		"headline"
+		"content";
+	grid-template-rows: min-content 100px min-content auto;
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 var(--scale-01);
+}
+
+@media(min-width: 1200px) {
+	section {
+		display: grid;
+	}
+}
+
+/* Figure
+------------------------------- */
+
+figure {
+	grid-area: figure;
+	margin: var(--scale-04) 0;	
+}
+
+@media(min-width: 1200px) {
+	figure {
+		max-width: calc(33% - 20px);
+	}
+}
+
+figure img {
+	max-width: 100%;
+}
+
+@media(min-width: 1200px) {
+	figure img {
+		width: 400px;
+		height: auto;
+	}
+}
+
+figure figcaption {
+	font-size: var(--scale--1);
+}
+
+/* Main
+------------------------------- */
+
+@media(min-width: 1200px) {
+	main {
+		grid-area: content;
+		columns: 3;
+		column-gap: var(--scale-01);
+	}
+}
+
+main p:first-child {
+	font-style: italic;
+}
+
+main p {
+	margin-top: 0;
+}
+
+h1 {
+	grid-area: headline;
+	margin: var(--scale-02) 0;
+	font-size: var(--scale-06);
+	text-align: center;
+}
+
+h1 span {
+	color: var(--color-01);
+}
+
+h2 {
+	margin: var(--scale-01) 0 var(--scale-01);
+	text-transform: uppercase;
+	color: var(--color-01);
+}
+
+table {
+	width: 100%;
+}
+
+table td {
+	border-bottom: 1px solid var(--color-00);
+}
