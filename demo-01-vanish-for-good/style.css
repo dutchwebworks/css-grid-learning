@@ -1,23 +1,60 @@
+/* Vars
+------------------------------- */
+
+:root {
+	/* Colors
+	------------------------------- */
+	
+	--color-00: #666;
+	--color-01: #4393bf;
+	--color-02: #bf8943;
+	--color-03: #eee;
+
+	/* 	Typographic scale: Base size 16px, scale 1.250 Major Third (https://type-scale.com/?size=16&scale=1.250&text=Vanish%20for%20Good&font=Open%20Sans%20Condensed&fontweight=400&bodyfont=Open%20Sans&bodyfontweight=400&lineheight=1.5&backgroundcolor=white&fontcolor=%23333&preview=false)
+	------------------------------- */
+
+	--scale--3: 8.19px;
+	--scale--2: 10.24px;
+	--scale--1: 12.8px;
+	--scale-00: 18px;
+	--scale-01: 20px;
+	--scale-02: 25px;
+	--scale-03: 32.25px;
+	--scale-04: 39.06px;
+	--scale-05: 48.83px;
+	--scale-06: 61.04px;
+	--scale-07: 76.29px;
+	--scale-08: 95.37px;
+
+	/* Font
+	------------------------------- */
+	
+	--font-00: "Open Sans", Arial, sans-serif;
+	--font-02: "Open Sans Condensed", Arial, sans-serif;
+}
+
 /* Body
 ------------------------------- */
 
 body {
-	margin: 0;
+	margin: var(--scale-02) 0;
 	padding: 0;
-	font-family: sans-serif;
-	color: #666;
+	font-family: var(--font-00);
+	font-size: var(--scale-00);
+	line-height: 1.5;
+	color: var(--color-00);
 }
 
 /* Wrapper
 ------------------------------- */
 
 .wrapper {
-	grid-gap: 20px;
-	grid-template-columns: 100px 3fr 4fr;
-	grid-template-rows: 50px 500px auto;
+	grid-gap: var(--scale-01);
+	grid-template-columns: min-content 3fr 4fr;
+	grid-template-rows: var(--scale-05) 500px auto;
 	max-width: 1200px;
 	margin: 0 auto;
-	padding: 0 20px;
+	padding: 0 var(--scale-01);
 }
 
 @media(min-width: 1024px) {
@@ -35,42 +72,51 @@ main {
 }
 
 h1 {
-	color: #4393bf;
-	grid-row: 2 / -1;	
-	margin: 20px 0 20px 0;
-	font-size: 44px;
-	line-height: 1.2;
+	grid-row: 1 / -1;	
+	margin: 0;
+	padding: 0;
+	font-size: var(--scale-05);
+	font-family: var(--font-01);
+	color: var(--color-01);
 }
 
 @media(min-width: 1024px) {
 	h1 {
-		writing-mode: vertical-rl;
 		transform: rotate(180deg);
+		writing-mode: vertical-rl;
 		text-align: right;
-		font-size: 85px;
+		font-size: var(--scale-08);
 	}
 }
 
 h2 {
-	margin-top: 40px;
-	color: #bf8943;
-	line-height: 1.5;
+	margin: var(--scale-04) 0 0 0;
+	color: var(--color-02);
+	font-family: var(--font-02);
+	font-size: var(--scale-03);
 }
 
 main p {
-	margin: 0 0;
+	margin: 0;
 	line-height: 1.5;
 }
 
 main p + p {
-	text-indent: 20px;
+	text-indent: var(--scale-01);
 }
 
+/* Intro paragraph
+------------------------------- */
+
 .intro {
-	margin: 0 0 20px 0;
-	line-height: 1.5;
+	margin: 0 0 var(--scale-04) 0;
+	font-size: var(--scale-02);
 	font-style: italic;
+	color: #aaa;
 }
+
+/* Bag image
+------------------------------- */
 
 .bag {
 	grid-row: 2;
@@ -78,6 +124,19 @@ main p + p {
 	justify-self: center;
 	align-self: end;
 	max-width: 100%;
+	margin: var(--scale-03) 0;
+}
+
+@media(min-width: 1024px) {
+	.bag {
+		margin: 0;
+	}
+}
+
+.bag figcaption {
+	font-size: var(--scale--1);
+	color: var(--color-01);
+	font-style: italic;
 }
 
 /* Aside
@@ -87,36 +146,33 @@ aside {
 	grid-row: 3;
 	grid-column: 3;	
 	grid-template-columns: 1fr 1fr;
-	color: #333;
+	color: var(--color-00);
 }
 
 @media(min-width: 400px) {
 	aside {
 		display: grid;
-		grid-gap: 20px;
+		grid-gap: var(--scale-01);
 	}
 }
 
-aside > div {
-	margin-bottom: 20px;
-	padding: 20px;
-	border-radius: 8px;
+aside > article {
+	margin-bottom: var(--scale-01);
+	padding: var(--scale-02);
+	border-radius: var(--scale-00);
 	background-color: #eee;
 }
 
 aside h3 {
 	margin-top: 0;
+	color: var(--color-01);
 }
 
 aside p + p {
-	margin: 20px 0 0 0;
+	margin: var(--scale-01) 0 0 0;
 }
 
 aside ul {
 	margin-top: 0;
 	column-count: 2;
-}
-
-aside li + li {
-	margin-top: 10px;
 }
