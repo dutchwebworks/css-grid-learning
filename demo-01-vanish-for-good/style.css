@@ -49,8 +49,13 @@ body {
 ------------------------------- */
 
 section {
-	grid-template-rows: [headline-start] var(--scale-07) [content-start-start] 500px [sidebar-start] auto;
-	grid-template-columns: [headline-start] min-content [content-start] 3fr [sidebar-start] 4fr [sidebar-end];
+	display: grid;
+	grid-template-areas: 
+		"headline"
+		"figure"
+		"content"
+		"aside";
+	grid-template-columns: 1fr;
 	grid-gap: var(--scale-01);
 	max-width: 1200px;
 	margin: 0 auto;
@@ -58,8 +63,13 @@ section {
 }
 
 @media(min-width: 1024px) {
-	section {
-		display: grid;
+	section {		
+		grid-template-areas: 
+			"headline . ."
+			"headline content figure"
+			"headline content aside";
+		grid-template-rows: var(--scale-07) 500px auto;
+		grid-template-columns: min-content 3fr 4fr;
 	}
 }
 
@@ -67,12 +77,11 @@ section {
 ------------------------------- */
 
 main {
-	grid-row: 2 / span 2;
-	grid-column: 2;
+	grid-area: content;
 }
 
 h1 {
-	grid-row: 1 / -1;	
+	grid-area: headline;
 	margin: 0;
 	padding: 0;
 	font-size: var(--scale-05);
@@ -119,11 +128,9 @@ main p:first-child {
 ------------------------------- */
 
 figure {
-	grid-row: 2;
-	grid-column: 3;
+	grid-area: figure;
 	justify-self: center;
-	align-self: end;
-	max-width: 100%;
+	align-self: end;	
 	margin: var(--scale-03) 0;
 }
 
@@ -131,6 +138,10 @@ figure {
 	figure {
 		margin: 0;
 	}
+}
+
+figure img {
+	max-width: 100%;
 }
 
 figure figcaption {
@@ -143,21 +154,36 @@ figure figcaption {
 ------------------------------- */
 
 aside {
-	grid-row: 3;
-	grid-column: 3;	
+	grid-area: aside;
+	display: grid;
+	grid-template-areas: 
+		"countries"
+		"article";
+	grid-template-columns: 1fr;
 	color: var(--color-00);
 }
 
 @media(min-width: 600px) {
 	aside {
-		display: grid;
-		grid-template-columns: [article-start] 1fr [list-start] 1fr [list-end];
+		grid-template-areas: 
+			"article countries";
+		grid-template-columns: 1fr 1fr;
 		grid-gap: var(--scale-01);
+		grid-gap: var(--scale-01);
+	}
+}
+@media(min-width: 1024px) {
+	aside {
+		grid-template-areas: 
+			"article"
+			"countries";
+		grid-template-columns: 1fr;
 		grid-gap: var(--scale-01);
 	}
 }
 
 aside > article {
+	grid-area: article;
 	margin-bottom: var(--scale-01);
 	padding: var(--scale-02);
 	border-radius: var(--scale-00);
@@ -175,6 +201,7 @@ aside p + p {
 }
 
 aside ul {
+	grid-area: countries;
 	margin-top: 0;
 	column-count: 2;
 }
