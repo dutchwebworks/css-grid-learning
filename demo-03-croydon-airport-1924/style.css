@@ -1,0 +1,95 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+        "aside main";
+    font-family: 'Open Sans';
+    height: 100vh;
+    align-items: center;
+}
+
+h1,
+h2 {
+    margin-top: 0;
+}
+
+main {
+    z-index: 2;
+    grid-area: main;
+    padding: 60px;
+    line-height: 1.5;
+    column-count: 2;
+    grid-template-rows: auto auto 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+    grid-template-areas:
+        "intro1 intro2"
+        "title title"
+        "content1 content2";
+    display: grid;
+}
+
+main h1 {
+    grid-area: title;
+    align-self: center;
+    font-size: 250px;
+    line-height: 1;
+    margin: 0;
+    padding: 0;
+    color: #224a3f;
+    font-family: "Open Sans Condensed";
+}
+
+main p {
+    margin-top: 0;
+}
+
+.intro1,
+.intro2 {
+    font-weight: 700;
+}
+
+.intro1 {
+    grid-area: intro1;
+}
+.intro2 {
+    grid-area: intro2;
+}
+
+.content1 {
+    grid-area: content1;
+}
+
+.content2 {
+    grid-area: content2;
+}
+
+aside {
+    z-index: 2;
+    grid-area: aside;
+    padding: 60px; 
+    line-height: 1.5;   
+    font-size: 26px;
+    color: #cdfef0;
+    font-family: 'Open Sans Condensed';
+}
+
+aside h2 {
+    grid-area: title;
+    margin: 0;
+    padding: 0;
+    font-size: 66px;
+    line-height: 1;
+}
+
+img {
+    grid-area: aside;
+    width: 50vw;
+    height: 100vh;
+    z-index: 1;
+    object-fit: cover;
+    object-position: 0 0;
+}
+
