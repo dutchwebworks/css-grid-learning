@@ -1,3 +1,3 @@
 # CSS Grid learning
 
-*By Dennis Burger, Amsterdam july 2019*
+*By Dennis Burger, July 2019*
